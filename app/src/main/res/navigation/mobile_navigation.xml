@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+
+    <include android:id="@+id/auth_navigation"
+        app:graph="@navigation/auth_navigation"/>
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.itproger.note.ui.fragment.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.itproger.note.ui.fragment.dashboard.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.itproger.note.ui.fragment.notifications.NotificationsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/taskFragment"
+        android:name="com.itproger.note.ui.fragment.task.TaskFragment"
+        android:label="@string/Task"
+        tools:layout="@layout/fragment_task" />
+    <fragment
+        android:id="@+id/navigation_prfile"
+        android:name="com.itproger.note.ui.fragment.profile.ProfileFragment"
+        android:label="@string/Profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/onBoardFragment"
+        android:name="com.itproger.note.ui.fragment.onboarding.OnBoardFragment"
+        android:label="fragment_on_board"
+        tools:layout="@layout/fragment_on_board" />
+
+    <action android:id="@+id/action_to_auth"
+        app:destination="@id/auth_navigation"
+        app:popUpToInclusive="false"
+        app:popUpTo="@id/auth_navigation"/>
+
+    <action android:id="@+id/action_to_mobile_navigation"
+        app:destination="@id/mobile_navigation"
+        app:popUpToInclusive="true"
+        app:popUpTo="@id/mobile_navigation"/>
+
+    <action android:id="@+id/action_to_onBoard"
+        app:destination="@id/onBoardFragment"
+        app:popUpToInclusive="true"
+        app:popUpTo="@id/mobile_navigation"/>
+</navigation>
